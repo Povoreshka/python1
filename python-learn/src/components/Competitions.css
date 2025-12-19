@@ -1,0 +1,580 @@
+/* components/Competitions.css */
+.competitions-container {
+  background: white;
+  border-radius: 24px;
+  padding: 35px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.competitions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.competitions-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.title-icon {
+  font-size: 2.2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.competitions-subtitle {
+  font-size: 1.05rem;
+  color: #718096;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 500px;
+}
+
+/* Стили для красивых кнопок */
+.create-competition-btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.create-competition-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.create-competition-btn:hover::before {
+  left: 100%;
+}
+
+.create-competition-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a5fa8 100%);
+}
+
+.create-competition-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.create-competition-btn .btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.create-competition-btn:hover .btn-icon {
+  transform: rotate(90deg);
+}
+
+/* Сетка соревнований */
+.competitions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.competition-card {
+  background: linear-gradient(135deg, #f8fafc, #edf2f7);
+  border-radius: 20px;
+  padding: 28px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.competition-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.competition-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.competition-header {
+  margin-bottom: 25px;
+  flex: 1;
+}
+
+.competition-badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-icon {
+  font-size: 1rem;
+}
+
+.type-speed {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 101, 101, 0.25);
+}
+
+.type-marathon {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
+}
+
+.type-algorithm {
+  background: linear-gradient(135deg, #9f7aea, #805ad5);
+  color: white;
+  box-shadow: 0 4px 12px rgba(159, 122, 234, 0.25);
+}
+
+.difficulty {
+  background: white;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.difficulty-средний {
+  border-color: #ed8936;
+  color: #ed8936;
+}
+
+.difficulty-сложный {
+  border-color: #f56565;
+  color: #f56565;
+}
+
+.difficulty-эксперт {
+  border-color: #9f7aea;
+  color: #9f7aea;
+}
+
+.competition-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.competition-description {
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.competition-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.competition-tag {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.competition-tag:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.competition-details {
+  background: white;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 25px;
+  border: 2px solid #e2e8f0;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.detail-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #f8fafc, #edf2f7);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.detail-icon {
+  font-size: 1.4rem;
+}
+
+.detail-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.detail-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1.3;
+}
+
+.detail-value.highlight {
+  color: #667eea;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.competition-footer {
+  margin-top: auto;
+}
+
+.competition-timer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(237, 137, 54, 0.1);
+  padding: 12px 18px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(237, 137, 54, 0.2);
+}
+
+.timer-icon {
+  font-size: 1.4rem;
+}
+
+.timer-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ed8936;
+}
+
+/* Красивые кнопки действий */
+.competition-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* Кнопка Присоединиться */
+.join-competition-btn {
+  flex: 1;
+  padding: 14px;
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(237, 137, 54, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.join-competition-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.join-competition-btn:hover::before {
+  left: 100%;
+}
+
+.join-competition-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(237, 137, 54, 0.4);
+  background: linear-gradient(135deg, #dd6b20 0%, #c05621 100%);
+}
+
+.join-competition-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.join-competition-btn .btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.join-competition-btn:hover .btn-icon {
+  transform: scale(1.2);
+}
+
+/* Кнопка Подробнее */
+.details-btn {
+  flex: 1;
+  padding: 14px;
+  background: transparent;
+  color: #4299e1;
+  border: 2px solid #4299e1;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.details-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.details-btn:hover::before {
+  opacity: 1;
+}
+
+.details-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(66, 153, 225, 0.2);
+  color: white;
+  border-color: #4299e1;
+}
+
+.details-btn:active {
+  transform: translateY(-1px);
+}
+
+.details-btn .btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.details-btn:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+.details-btn .btn-icon-right {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.details-btn:hover .btn-icon-right {
+  transform: translateX(5px);
+}
+
+.leaderboard-wrapper {
+  margin-top: 40px;
+}
+
+/* Загрузка */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .competitions-container {
+    padding: 30px;
+  }
+  
+  .competitions-title {
+    font-size: 2rem;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .competitions-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .create-competition-btn {
+    width: 100%;
+  }
+  
+  .competitions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .competition-card {
+    padding: 24px;
+  }
+  
+  .competition-actions {
+    flex-direction: column;
+  }
+  
+  .competitions-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .competitions-container {
+    padding: 20px;
+  }
+  
+  .competitions-title {
+    font-size: 1.6rem;
+  }
+  
+  .competition-name {
+    font-size: 1.4rem;
+  }
+  
+  .detail-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .detail-content {
+    text-align: center;
+  }
+}

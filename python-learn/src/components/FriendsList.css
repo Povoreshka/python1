@@ -1,0 +1,578 @@
+/* components/FriendsList.css */
+.friends-list {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid #e2e8f0;
+  height: 100%;
+}
+
+.friends-list h3 {
+  color: #2d3748;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.friends-list h3::before {
+  content: '👥';
+  font-size: 1.4rem;
+}
+
+.friends-search {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.friends-search:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.friends-search::placeholder {
+  color: #a0aec0;
+}
+
+/* Секции друзей */
+.pending-requests,
+.friends-online,
+.all-friends,
+.suggested-friends {
+  margin-bottom: 30px;
+}
+
+.pending-requests h4,
+.friends-online h4,
+.all-friends h4,
+.suggested-friends h4 {
+  color: #4a5568;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pending-requests h4::before {
+  content: '📨';
+}
+
+.friends-online h4::before {
+  content: '🟢';
+}
+
+.all-friends h4::before {
+  content: '👥';
+}
+
+.suggested-friends h4::before {
+  content: '✨';
+}
+
+/* Карточка запроса в друзья */
+.friend-request {
+  background: #f8fafc;
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.friend-request:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e0;
+}
+
+.request-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.friend-avatar {
+  font-size: 2rem;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  border: 3px solid #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.request-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-details strong {
+  color: #2d3748;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.mutual-friends {
+  color: #718096;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mutual-friends::before {
+  content: '🤝';
+  font-size: 1rem;
+}
+
+/* Кнопки запросов */
+.request-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.accept-btn, .decline-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.accept-btn {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.accept-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+  background: linear-gradient(135deg, #38a169, #2f855a);
+}
+
+.accept-btn:active {
+  transform: translateY(0);
+}
+
+.accept-btn::before {
+  content: '✓';
+  font-size: 1.1rem;
+}
+
+.decline-btn {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(245, 101, 101, 0.3);
+}
+
+.decline-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 101, 101, 0.4);
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+}
+
+.decline-btn:active {
+  transform: translateY(0);
+}
+
+.decline-btn::before {
+  content: '✕';
+  font-size: 1.1rem;
+}
+
+/* Сетка друзей */
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.friend-card {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.friend-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.friend-card.online {
+  border-left: 5px solid #48bb78;
+}
+
+.friend-card.offline {
+  border-left: 5px solid #a0aec0;
+}
+
+.friend-avatar-status {
+  position: relative;
+}
+
+.friend-avatar {
+  font-size: 2.2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 12px;
+  height: 12px;
+  background: #48bb78;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.friend-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friend-info strong {
+  color: #2d3748;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friend-xp, .friend-status {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.friend-xp {
+  color: #ed8936;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.friend-xp::before {
+  content: '⭐';
+}
+
+.friend-status {
+  color: #718096;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Кнопки для друзей */
+.challenge-btn, .message-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.challenge-btn {
+  background: linear-gradient(135deg, #ed8936, #dd6b20);
+  color: white;
+  box-shadow: 0 4px 15px rgba(237, 137, 54, 0.3);
+}
+
+.challenge-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(237, 137, 54, 0.4);
+  background: linear-gradient(135deg, #dd6b20, #c05621);
+}
+
+.challenge-btn:active {
+  transform: translateY(0) scale(1);
+}
+
+.challenge-btn::before {
+  content: '⚔️';
+  font-size: 1.1rem;
+}
+
+.message-btn {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+  padding: 10px 12px;
+}
+
+.message-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+  background: linear-gradient(135deg, #3182ce, #2c5282);
+}
+
+.message-btn:active {
+  transform: translateY(0) scale(1);
+}
+
+/* Предложенные друзья */
+.suggested-user {
+  background: #f8fafc;
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.suggested-user:hover {
+  transform: translateX(5px);
+  border-color: #cbd5e0;
+  background: white;
+}
+
+.suggested-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-avatar {
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+}
+
+.suggested-info strong {
+  color: #2d3748;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.user-stats span {
+  color: #718096;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-stats span:first-child::before {
+  content: '⭐';
+}
+
+.user-stats span:last-child::before {
+  content: '🤝';
+}
+
+/* Кнопка добавления друга */
+.add-friend-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.add-friend-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a6fd8, #6a5fa8);
+}
+
+.add-friend-btn:active {
+  transform: translateY(0);
+}
+
+.add-friend-btn::before {
+  content: '➕';
+  font-size: 1.1rem;
+}
+
+/* Пустой список */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #718096;
+}
+
+.empty-state .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.friend-request,
+.friend-card,
+.suggested-user {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .friends-list {
+    padding: 20px;
+  }
+  
+  .friends-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .request-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .accept-btn, .decline-btn {
+    width: 100%;
+  }
+  
+  .friend-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .friend-info {
+    text-align: center;
+  }
+  
+  .challenge-btn, .message-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .suggested-user {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .suggested-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .user-stats {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .add-friend-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .friends-list h3 {
+    font-size: 1.4rem;
+  }
+  
+  .friend-request {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .request-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .mutual-friends {
+    justify-content: center;
+  }
+}

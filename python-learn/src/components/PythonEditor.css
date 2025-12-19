@@ -1,0 +1,300 @@
+/* components/PythonEditor.css */
+.python-editor-container {
+  background: white;
+  border-radius: 15px;
+  padding: 0;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.editor-header {
+  background: linear-gradient(135deg, #f8fafc, #edf2f7);
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.editor-title h4 {
+  margin: 0 0 5px 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.editor-subtitle {
+  color: #718096;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.editor-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.run-button, .format-button, .reset-button, .clear-output {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.run-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.run-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.run-button.completed {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.run-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.format-button {
+  background: #edf2f7;
+  color: #4a5568;
+  border: 2px solid #cbd5e0;
+}
+
+.format-button:hover {
+  background: #e2e8f0;
+  border-color: #a0aec0;
+}
+
+.reset-button {
+  background: #fff5f5;
+  color: #c53030;
+  border: 2px solid #fed7d7;
+}
+
+.reset-button:hover {
+  background: #fed7d7;
+  border-color: #feb2b2;
+}
+
+.code-container {
+  padding: 0;
+}
+
+.code-header {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+}
+
+.code-language {
+  font-weight: 600;
+}
+
+.code-status {
+  color: #a0aec0;
+}
+
+.code-editor {
+  width: 100%;
+  padding: 25px;
+  border: none;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+  background: #fafafa;
+  color: #2d3748;
+  min-height: 250px;
+  outline: none;
+  tab-size: 4;
+}
+
+.code-editor:focus {
+  background: white;
+}
+
+.code-editor::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+.editor-hints {
+  background: #f7fafc;
+  padding: 15px 25px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hint {
+  color: #718096;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.output-container {
+  border-top: 2px solid #e2e8f0;
+  padding: 0;
+}
+
+.output-header {
+  background: #f8fafc;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.output-header h5 {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.clear-output {
+  background: none;
+  color: #718096;
+  padding: 6px 12px;
+  border: 1px solid #cbd5e0;
+  font-size: 0.85rem;
+}
+
+.clear-output:hover:not(:disabled) {
+  background: #fed7d7;
+  color: #c53030;
+  border-color: #feb2b2;
+}
+
+.clear-output:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.output-content {
+  padding: 20px 25px;
+  min-height: 150px;
+}
+
+.output-text {
+  margin: 0;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #2d3748;
+}
+
+.output-text.empty {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+.completion-message {
+  background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+  padding: 20px 25px;
+  border-top: 2px solid #9ae6b4;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.message-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.message-icon {
+  font-size: 2rem;
+}
+
+.message-content strong {
+  color: #22543d;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.message-content p {
+  color: #276749;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Синтаксис в редакторе (базовая подсветка) */
+.code-editor {
+  background: #fafafa;
+  color: #2d3748;
+}
+
+/* Стили для разных элементов кода в тексте */
+.code-editor:focus {
+  background: linear-gradient(transparent 95%, #e2e8f0 95%);
+  background-size: 100% 1.6em;
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .editor-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .run-button, .format-button, .reset-button {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+  
+  .editor-hints {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .code-editor {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+  
+  .output-content {
+    padding: 15px;
+  }
+}

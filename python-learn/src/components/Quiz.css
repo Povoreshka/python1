@@ -1,0 +1,139 @@
+/* components/Quiz.css */
+.quiz-container {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.quiz-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.cancel-button {
+  background: #ff4444;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: #ff0000;
+}
+
+.quiz-progress {
+  background: #f5f5f5;
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.quiz-progress .progress-fill {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.quiz-progress span {
+  position: absolute;
+  right: 0;
+  top: -25px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.question-container {
+  min-height: 300px;
+}
+
+.code-block {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+.code-editor {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  margin: 15px 0;
+  resize: vertical;
+}
+
+.code-editor:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.submit-code-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.submit-code-button:hover {
+  opacity: 0.9;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.option-button, .answer-button {
+  background: white;
+  border: 2px solid #667eea;
+  color: #667eea;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-button:hover, .answer-button:hover {
+  background: #667eea;
+  color: white;
+}
+
+.multiple-choice-question h3,
+.code-question h3,
+.standard-question h3 {
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
